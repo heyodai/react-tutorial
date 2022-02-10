@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import renderer from 'react-test-renderer';
 import './index.css';
 
 function Square(props) {
@@ -93,6 +92,7 @@ class Game extends React.Component {
         const current = history[this.state.stepNumber];
         const winner = calculateWinner(current.squares);
 
+        const history_string = `Show history?`;
         const moves = history.map((step, move) => {
             const desc = move ?
                 'Go to move #' + move :
@@ -121,7 +121,27 @@ class Game extends React.Component {
                 </div>
                 <div className="game-info">
                     <div>{status}</div>
+                    <br />
+                    <input type="checkbox" checked />{history_string}
                     <ol>{moves}</ol>
+                </div>
+                <div style={{marginLeft:1+'em'}}>
+                    Radio test
+                    <div>
+                        <input type="radio" id="huey" name="drone" value="huey"
+                            checked />
+                            <label for="huey">Huey</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="dewey" name="drone" value="dewey" />
+                            <label for="dewey">Dewey</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="louie" name="drone" value="louie" />
+                            <label for="louie">Louie</label>
+                    </div>
                 </div>
             </div>
         );
